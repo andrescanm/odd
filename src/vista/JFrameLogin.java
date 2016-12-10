@@ -21,7 +21,6 @@ public class JFrameLogin extends javax.swing.JFrame {
     public JFrameLogin() {
         initComponents();
         setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("../assets/principal_icon.png")).getImage());
     }
 
     /**

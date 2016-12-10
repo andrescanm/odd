@@ -5,38 +5,32 @@
  */
 package controlador;
 
-import modelo.UsuarioDAO;
-import vista.JFramePrincipal;
-import vista.JInternalFrameUsuarios;
+import modelo.*;
+import vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import vista.JInternalFramePredios;
 
 /**
  *
  * @author Andrés Cañón M.
  */
 public class ControladorUsuario implements ActionListener{
-    JFramePrincipal vistaPrincipal = new JFramePrincipal();
     JInternalFrameUsuarios vistaUsuario = new JInternalFrameUsuarios();
     JInternalFramePredios vistaPredios = new JInternalFramePredios();
     UsuarioDAO modeloUsuario = new UsuarioDAO();
 
-    public ControladorUsuario(JFramePrincipal vistaPrincipal, JInternalFrameUsuarios vistaUsuario, JInternalFramePredios vistaPredios, UsuarioDAO modeloUsuario) {
-        this.vistaPrincipal = vistaPrincipal;
-        this.vistaPrincipal.setVisible(true);
+    public ControladorUsuario(JInternalFrameUsuarios vistaUsuario, UsuarioDAO modeloUsuario) {
         this.vistaUsuario = vistaUsuario;
         this.modeloUsuario = modeloUsuario;
         this.vistaPredios = vistaPredios;
-        this.vistaPrincipal.menuItemUsuarios.addActionListener(this);
-        this.vistaPrincipal.menuItemPredios.addActionListener(this);
         this.vistaUsuario.btnNuevo.addActionListener(this);
         this.vistaUsuario.btnGuardar.addActionListener(this);
         this.vistaUsuario.btnEditar.addActionListener(this);
         this.vistaUsuario.btnEliminar.addActionListener(this);
         this.vistaUsuario.btnCancelar.addActionListener(this);
         this.vistaUsuario.btnBuscar.addActionListener(this);
+        
         inactivarControles();
     }
     
@@ -55,6 +49,7 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.pwdIngresarPassword.setText("");
         vistaUsuario.pwdIngresarPassword1.setText("");
         vistaUsuario.btnNuevo.setEnabled(true);
+        vistaUsuario.btnCancelar.setEnabled(false);
         inactivarControles();
     }
     
@@ -84,15 +79,12 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.pwdIngresarPassword.setEditable(true);
         vistaUsuario.pwdIngresarPassword1.setEditable(true);
         vistaUsuario.btnGuardar.setEnabled(true);
+        vistaUsuario.btnCancelar.setEnabled(true);
     }
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vistaPrincipal.menuItemUsuarios){
-            vistaPrincipal.jDesktopPane1.add(vistaUsuario);
-            vistaUsuario.setVisible(true);
-        }
         
         if(e.getSource() == vistaUsuario.btnGuardar){
             String clave1 = String.valueOf(vistaUsuario.pwdIngresarPassword.getPassword());
@@ -132,9 +124,5 @@ public class ControladorUsuario implements ActionListener{
             vistaUsuario.btnNuevo.setEnabled(false);
         }
         
-        
-        if(e.getSource() == vistaPrincipal.menuItemPredios)
-        vistaPrincipal.jDesktopPane1.add(vistaPredios);
-            vistaPredios.setVisible(true);        
     }    
 }

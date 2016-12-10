@@ -22,7 +22,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
-        setIconImage(new ImageIcon(getClass().getResource("../assets/principal_icon.png")).getImage());
     }
 
     /**

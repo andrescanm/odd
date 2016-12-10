@@ -65,8 +65,7 @@ public class Conexion {
             /*Establecer la conexión a la base de datos*/
             conexion = DriverManager.getConnection("jdbc:derby:.\\database\\optimizador.DB");
         } catch (SQLException | ClassNotFoundException e) {
-            //JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.INFORMATION_MESSAGE);
-            JOptionPane.showMessageDialog(null, "La base de datos no está creada, esto puede deberse a que esta es la primer vez que ejecuta la aplicación, haga clic en \'Aceptar\' para crear la base de datos\n", "Base de datos no encontrada", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La base de datos no está creada, esto puede deberse a que esta es la primer vez que ejecuta la aplicación, haga clic en \'Aceptar\' para crear la base de datos.\n", "Base de datos no encontrada.", JOptionPane.INFORMATION_MESSAGE);
         }
         return conexion;
     }

@@ -34,7 +34,11 @@ public class ControladorPrincipal implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vistaPrincipal.menuItemUsuarios){
-            
+            JInternalFrameUsuarios vistaUsuario = new JInternalFrameUsuarios();
+            UsuarioDAO modeloUsuario = new UsuarioDAO();
+            vistaPrincipal.jDesktopPane1.add(vistaUsuario);
+        vistaUsuario.setVisible(true);
+          ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario, modeloUsuario);
         }
         
         if(e.getSource() == vistaPrincipal.menuItemPredios){
