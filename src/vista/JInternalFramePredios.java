@@ -65,6 +65,8 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jPanelCampos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Administración de predios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 2, 12))); // NOI18N
 
@@ -338,7 +340,7 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
         );
 
         jPanelBusqueda.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsquedas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 2, 12))); // NOI18N
-        jPanelBusqueda.setMaximumSize(new java.awt.Dimension(480, 270));
+        jPanelBusqueda.setMaximumSize(new java.awt.Dimension(800, 270));
         jPanelBusqueda.setMinimumSize(new java.awt.Dimension(480, 270));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

@@ -10,6 +10,8 @@ import vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,6 +32,7 @@ public class ControladorUsuario implements ActionListener{
         this.vistaUsuario.btnEliminar.addActionListener(this);
         this.vistaUsuario.btnCancelar.addActionListener(this);
         this.vistaUsuario.btnBuscar.addActionListener(this);
+        this.llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
         
         inactivarControles();
     }
@@ -82,7 +85,33 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.btnCancelar.setEnabled(true);
     }
     
-    
+public void llenarTablaUsuarios(JTable tabla){
+        DefaultTableModel  modeloTabla = new DefaultTableModel();
+        tabla.setModel(modeloTabla);
+        
+        modeloTabla.addColumn("ID");
+        modeloTabla.addColumn("NOMBRES");
+        modeloTabla.addColumn("APELLIDOS");
+        modeloTabla.addColumn("USERNAME");
+        modeloTabla.addColumn("TIPO");
+        modeloTabla.addColumn("CARGO");
+        modeloTabla.addColumn("AREA");
+        
+        Object[] columna = new Object[7];
+
+        int numeroRegistros = modeloUsuario.listarUsuarios().size();
+
+        for (int i = 0; i < numeroRegistros; i++) {
+            columna[0] = modeloUsuario.listarUsuarios().get(i).getIdUsuario();
+            columna[1] = modeloUsuario.listarUsuarios().get(i).getNombres();
+            columna[2] = modeloUsuario.listarUsuarios().get(i).getApellidos();
+            columna[3] = modeloUsuario.listarUsuarios().get(i).getUsername();
+            columna[4] = modeloUsuario.listarUsuarios().get(i).getTipoUsuario();
+            columna[5] = modeloUsuario.listarUsuarios().get(i).getCargo();
+            columna[6] = modeloUsuario.listarUsuarios().get(i).getArea();
+            modeloTabla.addRow(columna);
+        }
+    }    
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -103,6 +132,7 @@ public class ControladorUsuario implements ActionListener{
                 if(resultado != null){
                     JOptionPane.showMessageDialog(null, resultado);
                     limpiarFormulario();
+                    llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
                 }else{
                     JOptionPane.showMessageDialog(null, "Error guardando el registro");
                 }
@@ -114,6 +144,7 @@ public class ControladorUsuario implements ActionListener{
         if(e.getSource() == vistaUsuario.btnCancelar){
             JOptionPane.showMessageDialog(null, "¡Acción Cancelada!");
             limpiarFormulario();
+            llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
         }
         
         if(e.getSource() == vistaUsuario.btnNuevo){

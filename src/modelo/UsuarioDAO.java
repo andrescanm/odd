@@ -5,6 +5,7 @@
  */
 package modelo;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -81,5 +82,29 @@ public class UsuarioDAO {
             JOptionPane.showMessageDialog(null, e);
         }        
         return usuario;
+    }
+
+ public ArrayList<UsuarioDTO> listarUsuarios(){
+        ArrayList listaUsuarios = new ArrayList();
+        UsuarioDTO usuario;
+        try {
+            Connection accesoBaseDatos = conexion.accederBaseDatos();
+            PreparedStatement ps = accesoBaseDatos.prepareStatement("SELECT * FROM usuarios");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                usuario = new UsuarioDTO();
+                usuario.setIdUsuario(rs.getString(1));
+                usuario.setNombres(rs.getString(5));
+                usuario.setApellidos(rs.getString(6));
+                usuario.setUsername(rs.getString(2));
+                usuario.setTipoUsuario(rs.getString(4));
+                usuario.setCargo(rs.getString(7));
+                usuario.setArea(rs.getString(8));
+                listaUsuarios.add(usuario);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return listaUsuarios;
     }
 }

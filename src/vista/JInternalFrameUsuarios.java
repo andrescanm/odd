@@ -53,7 +53,7 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         jPanelBusqueda = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDatosUsuarios = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         cboxSeleccionarAtributoBuscar = new javax.swing.JComboBox<>();
         txtBuscar = new javax.swing.JTextField();
@@ -61,6 +61,8 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jPanelCampos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Administración de usuarios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 2, 12))); // NOI18N
 
@@ -195,7 +197,7 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
                                 .addComponent(jPasswordField1)
                                 .addGap(18, 18, 18)
                                 .addComponent(pwdIngresarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
                 .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanelCamposLayout.createSequentialGroup()
@@ -277,9 +279,9 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
 
         jPanelBusqueda.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsquedas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 2, 12))); // NOI18N
         jPanelBusqueda.setMaximumSize(new java.awt.Dimension(480, 270));
-        jPanelBusqueda.setMinimumSize(new java.awt.Dimension(480, 270));
+        jPanelBusqueda.setMinimumSize(new java.awt.Dimension(800, 270));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDatosUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -290,7 +292,7 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblDatosUsuarios);
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel8.setText("Buscar por:");
@@ -394,9 +396,9 @@ public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jPasswordField1;
     private javax.swing.JLabel jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
     public javax.swing.JPasswordField pwdIngresarPassword;
     public javax.swing.JPasswordField pwdIngresarPassword1;
+    public javax.swing.JTable tblDatosUsuarios;
     public javax.swing.JTextField txtApellidos;
     public javax.swing.JTextField txtArea;
     public javax.swing.JTextField txtBuscar;
