@@ -50,14 +50,11 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
         txtNumUnidadesHabitacionales1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtNumUnidadesNoHabitacionales1 = new javax.swing.JTextField();
-        btnNuevo = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnEliminar1 = new javax.swing.JButton();
+        btnSeleccionarArchivo = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
         jPanelBusqueda = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -177,25 +174,10 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
         txtNumUnidadesNoHabitacionales1.setMinimumSize(new java.awt.Dimension(145, 25));
         txtNumUnidadesNoHabitacionales1.setPreferredSize(new java.awt.Dimension(145, 25));
 
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        btnGuardar.setText("Guardar");
-        btnGuardar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        btnEditar.setText("Editar");
-        btnEditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        btnEliminar1.setText("Cancelar");
-        btnEliminar1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEliminar1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSeleccionarArchivo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSeleccionarArchivo.setText("Seleccionar archivo");
+        btnSeleccionarArchivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSeleccionarArchivo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel12.setText("Observaciones:");
@@ -203,6 +185,9 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel13.setText("Abrir archivo:");
 
         javax.swing.GroupLayout jPanelCamposLayout = new javax.swing.GroupLayout(jPanelCampos);
         jPanelCampos.setLayout(jPanelCamposLayout);
@@ -238,7 +223,8 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel10)
-                                .addComponent(jLabel12))
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel13))
                             .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanelCamposLayout.createSequentialGroup()
                                     .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,20 +260,12 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
                                                 .addComponent(txtNumUnidadesNoHabitacionales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGroup(jPanelCamposLayout.createSequentialGroup()
                                     .addGap(4, 4, 4)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSeleccionarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCamposLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(txtNombreSubscriptor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelCamposLayout.createSequentialGroup()
-                        .addComponent(btnNuevo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar1)))
+                            .addComponent(txtNombreSubscriptor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanelCamposLayout.setVerticalGroup(
@@ -349,14 +327,14 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
                 .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnEditar)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnEliminar1))
-                .addContainerGap())
+                .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCamposLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addContainerGap())
+                    .addGroup(jPanelCamposLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSeleccionarArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))))
         );
 
         jPanelBusqueda.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsquedas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 2, 12))); // NOI18N
@@ -443,7 +421,7 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -457,17 +435,14 @@ public class JInternalFramePredios extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnNuevo;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnSeleccionarArchivo;
     private javax.swing.JComboBox<String> cboxSeleccionarAtributoBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

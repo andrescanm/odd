@@ -7,10 +7,10 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JInternalFrame;
 import modelo.*;
 import vista.*;
-import controlador.*;
+import java.io.File;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -33,19 +33,25 @@ public class ControladorPrincipal implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vistaPrincipal.menuItemUsuarios){
+        /*Si se selecciona la opción usuarios del menú se intancia la vista y
+        el modelo de usuario y se envian como parámetros a una intancia
+        del controlador de usuarios*/
+        if (e.getSource() == vistaPrincipal.menuItemUsuarios) {
             JInternalFrameUsuarios vistaUsuario = new JInternalFrameUsuarios();
             UsuarioDAO modeloUsuario = new UsuarioDAO();
             vistaPrincipal.jDesktopPane1.add(vistaUsuario);
-        vistaUsuario.setVisible(true);
-          ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario, modeloUsuario);
+            vistaUsuario.setVisible(true);
+            ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario, modeloUsuario);
         }
-        
-        if(e.getSource() == vistaPrincipal.menuItemPredios){
-            
+
+        if (e.getSource() == vistaPrincipal.menuItemPredios) {
+            JInternalFramePredios vistaPredios = new JInternalFramePredios();
+            vistaPrincipal.jDesktopPane1.add(vistaPredios);
+            vistaPredios.setVisible(true);
+            ControladorPredios controladorPredios = new ControladorPredios(vistaPredios);
         }
-        
-        if(e.getSource() == vistaPrincipal.menuItemSalir){
+
+        if (e.getSource() == vistaPrincipal.menuItemSalir) {
             System.exit(0);
         }
     }
