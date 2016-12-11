@@ -27,8 +27,13 @@ public class ControladorPrincipal implements ActionListener {
         vistaPrincipal.lblUsuarioLogin.setText("Bienvenido(a): " + usuarioValido.getNombres() + " " + usuarioValido.getApellidos());
         vistaPrincipal.setVisible(true);
         vistaPrincipal.menuItemUsuarios.addActionListener(this);
+        vistaPrincipal.menuItemUsuarios.setEnabled(false);
         vistaPrincipal.menuItemPredios.addActionListener(this);
         vistaPrincipal.menuItemSalir.addActionListener(this);
+        /*El acceso al módulo de usuarios se habilita sólo para si el usuario que ingresó es del tipo Administrador*/
+        if(usuarioValido.getTipoUsuario().equals("Administrador")){
+            vistaPrincipal.menuItemUsuarios.setEnabled(true);
+        }
     }
 
     @Override
