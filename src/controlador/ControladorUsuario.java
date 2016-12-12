@@ -17,7 +17,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Andrés Cañón M.
  */
-public class ControladorUsuario implements ActionListener{
+public class ControladorUsuario implements ActionListener {
+
     JInternalFrameUsuarios vistaUsuario = new JInternalFrameUsuarios();
     JInternalFramePredios vistaPredios = new JInternalFramePredios();
     UsuarioDAO modeloUsuario = new UsuarioDAO();
@@ -33,15 +34,15 @@ public class ControladorUsuario implements ActionListener{
         this.vistaUsuario.btnCancelar.addActionListener(this);
         this.vistaUsuario.btnBuscar.addActionListener(this);
         this.llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
-        
+
         inactivarControles();
     }
-    
-    public void InicializarControladorUsuario(){
-        
+
+    public void InicializarControladorUsuario() {
+
     }
-    
-    public void limpiarFormulario(){
+
+    public void limpiarFormulario() {
         vistaUsuario.txtIdUsuario.setText("");
         vistaUsuario.txtNombres.setText("");
         vistaUsuario.txtApellidos.setText("");
@@ -55,8 +56,8 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.btnCancelar.setEnabled(false);
         inactivarControles();
     }
-    
-    public void inactivarControles(){        
+
+    public void inactivarControles() {
         vistaUsuario.txtIdUsuario.setEditable(false);
         vistaUsuario.txtNombres.setEditable(false);
         vistaUsuario.txtApellidos.setEditable(false);
@@ -70,7 +71,7 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.cboxSeleccionarTipo.setEnabled(false);
     }
 
-    public void activarControles(){        
+    public void activarControles() {
         vistaUsuario.txtIdUsuario.setEditable(true);
         vistaUsuario.txtNombres.setEditable(true);
         vistaUsuario.txtApellidos.setEditable(true);
@@ -84,11 +85,11 @@ public class ControladorUsuario implements ActionListener{
         vistaUsuario.btnGuardar.setEnabled(true);
         vistaUsuario.btnCancelar.setEnabled(true);
     }
-    
-public void llenarTablaUsuarios(JTable tabla){
-        DefaultTableModel  modeloTabla = new DefaultTableModel();
+
+    public void llenarTablaUsuarios(JTable tabla) {
+        DefaultTableModel modeloTabla = new DefaultTableModel();
         tabla.setModel(modeloTabla);
-        
+
         modeloTabla.addColumn("ID");
         modeloTabla.addColumn("NOMBRES");
         modeloTabla.addColumn("APELLIDOS");
@@ -96,7 +97,7 @@ public void llenarTablaUsuarios(JTable tabla){
         modeloTabla.addColumn("TIPO");
         modeloTabla.addColumn("CARGO");
         modeloTabla.addColumn("AREA");
-        
+
         Object[] columna = new Object[7];
 
         int numeroRegistros = modeloUsuario.listarUsuarios().size();
@@ -111,14 +112,15 @@ public void llenarTablaUsuarios(JTable tabla){
             columna[6] = modeloUsuario.listarUsuarios().get(i).getArea();
             modeloTabla.addRow(columna);
         }
-    }    
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if(e.getSource() == vistaUsuario.btnGuardar){
+
+        if (e.getSource() == vistaUsuario.btnGuardar) {
             String clave1 = String.valueOf(vistaUsuario.pwdIngresarPassword.getPassword());
             String clave2 = String.valueOf(vistaUsuario.pwdIngresarPassword1.getPassword());
-            if(clave1.equals(clave2)){
+            if (clave1.equals(clave2)) {
                 String idUsuario = vistaUsuario.txtIdUsuario.getText();
                 String username = vistaUsuario.txtUsername.getText();
                 String clave = String.valueOf(vistaUsuario.pwdIngresarPassword.getPassword());
@@ -129,31 +131,31 @@ public void llenarTablaUsuarios(JTable tabla){
                 String area = vistaUsuario.txtArea.getText();
                 String resultado = modeloUsuario.insertarUsuario(idUsuario, username, clave, tipousuario, nombres, apellidos, cargo, area);
 
-                if(resultado != null){
+                if (resultado != null) {
                     JOptionPane.showMessageDialog(null, resultado);
                     limpiarFormulario();
                     llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Error guardando el registro");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, por favor intente nuevamente.");
             }
         }
-        
-        if(e.getSource() == vistaUsuario.btnCancelar){
+
+        if (e.getSource() == vistaUsuario.btnCancelar) {
             JOptionPane.showMessageDialog(null, "¡Acción Cancelada!");
             limpiarFormulario();
             llenarTablaUsuarios(vistaUsuario.tblDatosUsuarios);
         }
-        
-        if(e.getSource() == vistaUsuario.btnNuevo){
+
+        if (e.getSource() == vistaUsuario.btnNuevo) {
             limpiarFormulario();
             activarControles();
             vistaUsuario.btnEditar.setEnabled(false);
             vistaUsuario.btnEliminar.setEnabled(false);
             vistaUsuario.btnNuevo.setEnabled(false);
         }
-        
-    }    
+
+    }
 }

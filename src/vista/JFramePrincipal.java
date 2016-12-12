@@ -40,8 +40,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         menuItemUsuarios = new javax.swing.JMenuItem();
         menuItemPredios = new javax.swing.JMenuItem();
         menuItemSalir = new javax.swing.JMenuItem();
-        menuPreferencias = new javax.swing.JMenu();
+        menuReportes = new javax.swing.JMenu();
         menuAyuda = new javax.swing.JMenu();
+        menuItemAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Optimizador De Direcciones");
@@ -94,10 +95,19 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         barraMenuPrincipal.add(menuArchivo);
 
-        menuPreferencias.setText("Preferencias");
-        barraMenuPrincipal.add(menuPreferencias);
+        menuReportes.setText("Reportes");
+        barraMenuPrincipal.add(menuReportes);
 
         menuAyuda.setText("Ayuda");
+
+        menuItemAcercaDe.setText("Acerca de...");
+        menuItemAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAcercaDeActionPerformed(evt);
+            }
+        });
+        menuAyuda.add(menuItemAcercaDe);
+
         barraMenuPrincipal.add(menuAyuda);
 
         setJMenuBar(barraMenuPrincipal);
@@ -123,6 +133,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void menuItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuariosActionPerformed
         
     }//GEN-LAST:event_menuItemUsuariosActionPerformed
+
+    private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
+        JInternalFrameAcercaDe ventanaCreditos = new JInternalFrameAcercaDe();
+        jDesktopPane1.add(ventanaCreditos);
+        ventanaCreditos.setVisible(true);
+    }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,9 +177,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
     public javax.swing.JLabel lblUsuarioLogin;
     public javax.swing.JMenu menuArchivo;
     public javax.swing.JMenu menuAyuda;
+    private javax.swing.JMenuItem menuItemAcercaDe;
     public javax.swing.JMenuItem menuItemPredios;
     public javax.swing.JMenuItem menuItemSalir;
     public javax.swing.JMenuItem menuItemUsuarios;
-    public javax.swing.JMenu menuPreferencias;
+    public javax.swing.JMenu menuReportes;
     // End of variables declaration//GEN-END:variables
 }
