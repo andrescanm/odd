@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class JInternalFrameEstadoVisita extends javax.swing.JInternalFrame {
 

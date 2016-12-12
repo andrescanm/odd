@@ -10,7 +10,7 @@ import vista.*;
 import controlador.*;
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class main {
 

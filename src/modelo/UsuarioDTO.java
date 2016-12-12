@@ -7,7 +7,7 @@ package modelo;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class UsuarioDTO {
     private String idUsuario;

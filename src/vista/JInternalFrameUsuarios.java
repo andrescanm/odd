@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class JInternalFrameUsuarios extends javax.swing.JInternalFrame {
 

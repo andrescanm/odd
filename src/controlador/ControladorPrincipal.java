@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class ControladorPrincipal implements ActionListener {
 

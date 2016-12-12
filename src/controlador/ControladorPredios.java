@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class ControladorPredios implements ActionListener {
 

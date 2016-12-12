@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class JInternalFramePredios extends javax.swing.JInternalFrame {
 

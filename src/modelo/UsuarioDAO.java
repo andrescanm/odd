@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pavilion
+ * @author Andrés Cañón M.
  */
 public class UsuarioDAO {
     private Conexion conexion = null;
@@ -51,7 +51,7 @@ public class UsuarioDAO {
                 resultadoRegistro = "Registro exitoso!";
             }            
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
         }
         return resultadoRegistro;
     }
@@ -89,7 +89,7 @@ public class UsuarioDAO {
         UsuarioDTO usuario;
         try {
             Connection accesoBaseDatos = conexion.accederBaseDatos();
-            PreparedStatement ps = accesoBaseDatos.prepareStatement("SELECT * FROM usuarios");
+            PreparedStatement ps = accesoBaseDatos.prepareStatement("SELECT * FROM usuarios ORDER BY idUsuario");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 usuario = new UsuarioDTO();
